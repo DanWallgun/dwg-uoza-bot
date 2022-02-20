@@ -6,7 +6,7 @@ from aiogram.dispatcher.webhook import BaseResponse
 from bot import prepare_dispatcher
 
 
-async def handler(event, context):
+async def handler(event, _):
     if event["httpMethod"] != "POST":
         return {"statusCode": 400}
 
