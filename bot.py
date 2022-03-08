@@ -1,4 +1,3 @@
-import logging
 import os
 import random
 import uuid
@@ -35,7 +34,6 @@ async def inline_random_case(inline_query: types.InlineQuery):
 
 
 def prepare_dispatcher() -> Dispatcher:
-    logging.getLogger().setLevel(logging.INFO)
     dispatcher = Dispatcher(Bot(os.getenv("TELEGRAM_BOT_TOKEN")))
     dispatcher.setup_middleware(LoggingMiddleware())
     dispatcher.register_message_handler(echo)

@@ -35,7 +35,11 @@ operation = function_service.CreateVersion(
         execution_timeout=duration,
         service_account_id="aje8at9dccectav28113",
         content=ycf_zip.getvalue(),
-        environment={"TELEGRAM_BOT_TOKEN": os.getenv("TELEGRAM_BOT_TOKEN")},
+        environment={
+            "TELEGRAM_ADMIN_ID": os.getenv("TELEGRAM_ADMIN_ID"),
+            "TELEGRAM_BOT_TOKEN": os.getenv("TELEGRAM_BOT_TOKEN"),
+            "YC_TRIGGER_ID": os.getenv("YC_TRIGGER_ID"),
+        },
     )
 )
 operation_result = sdk.wait_operation_and_get_result(
